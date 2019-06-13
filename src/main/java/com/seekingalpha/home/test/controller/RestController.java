@@ -1,5 +1,6 @@
 package com.seekingalpha.home.test.controller;
 
+import com.seekingalpha.home.test.dto.FollowerDTO;
 import com.seekingalpha.home.test.dto.UserDTO;
 import com.seekingalpha.home.test.service.IDataBaseSQL;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +11,16 @@ import java.util.List;
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
 
-@Autowired
+    @Autowired
     IDataBaseSQL workWithDB;
+
+//    @GetMapping("/auto")
+//    void addToDBTest() {
+//        workWithDB.addGroups();
+//        System.out.println("Groups Created");
+//        workWithDB.addUsers();
+//        System.out.println("Users Created");
+//    }
 
     @GetMapping("/")
     List<UserDTO> getAllMembers() {
@@ -19,8 +28,8 @@ public class RestController {
     }
 
     @PostMapping("/")
-    UserDTO followUnfollow(@RequestBody int id1,int id2) {
-        return workWithDB.Follow_Unfollow_User(id1, id2);
+    UserDTO followUnfollow(@RequestBody FollowerDTO followerDTO) {
+        return workWithDB.Follow_Unfollow_User(followerDTO.getId1(), followerDTO.getId2());
     }
 
 }

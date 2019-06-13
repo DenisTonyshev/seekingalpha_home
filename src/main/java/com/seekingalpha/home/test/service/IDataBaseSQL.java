@@ -7,7 +7,11 @@ import java.util.*;
 
 public interface IDataBaseSQL {
 
-   List<UserDTO> getAllUsers();
-   UserDTO Follow_Unfollow_User(int mainId, int followerId);
+//    void addGroups();
+//    void addUsers();
+
+    List<UserDTO> getAllUsers();
+
+    UserDTO Follow_Unfollow_User(int mainId, int followerId);
 
 }
