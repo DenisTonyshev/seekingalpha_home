@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin
 @org.springframework.web.bind.annotation.RestController
+@CrossOrigin(origins = "http://localhost:63342")
 public class RestController {
 
     @Autowired
