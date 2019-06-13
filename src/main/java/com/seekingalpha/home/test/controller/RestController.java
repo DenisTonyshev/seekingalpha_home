@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
 
@@ -21,13 +22,12 @@ public class RestController {
 //        workWithDB.addUsers();
 //        System.out.println("Users Created");
 //    }
-    @CrossOrigin(origins = "https://seekingalpha-home.herokuapp.com/")
     @GetMapping("/")
     List<UserDTO> getAllMembers() {
         return workWithDB.getAllUsers();
     }
 
-    @CrossOrigin(origins = "https://seekingalpha-home.herokuapp.com/")
+
     @PostMapping("/")
     UserDTO followUnfollow(@RequestBody FollowerDTO followerDTO) {
         return workWithDB.Follow_Unfollow_User(followerDTO.getId1(), followerDTO.getId2());
