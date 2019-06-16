@@ -18,6 +18,7 @@ public class UserJPA implements Serializable {
         this.name = name;
         this.group_id = group;
         this.numberOfFollowers = 0;
+        this.followers = new ArrayList<>();
     }
 
     @Id
@@ -34,9 +35,8 @@ public class UserJPA implements Serializable {
     @Column(name = "NumberOfFollowers")
     private int numberOfFollowers;
 
-    @OneToMany
-    @JoinColumn(name = "followers")
-    private List<UserJPA> followers;
+    @Column(name = "myFollowers")
+    private ArrayList<Integer> followers;
 
     @Override
     public String toString() {

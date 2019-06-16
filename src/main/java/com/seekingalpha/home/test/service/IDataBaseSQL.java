@@ -1,6 +1,7 @@
 package com.seekingalpha.home.test.service;
 
 import com.seekingalpha.home.test.dto.*;
+
 import java.util.*;
 
 public interface IDataBaseSQL {
@@ -11,7 +12,7 @@ public interface IDataBaseSQL {
     boolean logIn(int id);
 
     List<UserDTO> getAllUsers();
-
+    List<Integer> getUserFollowersById(int id);
     UserDTO Follow_Unfollow_User(int mainId, int followerId);
 
 }

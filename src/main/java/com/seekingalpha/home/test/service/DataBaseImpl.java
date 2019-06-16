@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import javax.validation.constraints.Null;
 import java.util.*;
 
 @Service
@@ -48,6 +49,12 @@ public class DataBaseImpl implements IDataBaseSQL {
     }
 
     @Override
+    public List<Integer> getUserFollowersById(int id) {
+       UserJPA byId = userRepo.findById(id).orElse(null);
+        return  byId.getFollowers();
+    }
+
+    @Override
     @Transactional
     public UserDTO Follow_Unfollow_User(int mainUser, int follower) {
         UserJPA mainPerson = userRepo.findById(mainUser).orElse(null);
@@ -56,15 +63,15 @@ public class DataBaseImpl implements IDataBaseSQL {
             return UserJpaToDto(mainPerson);
         }
         if (mainPerson != null && followerPerson != null) {
-            List<UserJPA> followers = mainPerson.getFollowers();
-            if (followers.contains(followerPerson)) {
-                followers.remove(followerPerson);
+            ArrayList<Integer> followers = mainPerson.getFollowers();
+            if (followers.contains(followerPerson.getId())) {
+                followers.remove(followerPerson.getId());
                 mainPerson.setNumberOfFollowers(followers.size());
                 mainPerson.setFollowers(followers);
                 userRepo.save(mainPerson);
                 return UserJpaToDto(mainPerson);
             } else {
-                followers.add(followerPerson);
+                followers.add(followerPerson.getId());
                 mainPerson.setNumberOfFollowers(followers.size());
                 mainPerson.setFollowers(followers);
                 userRepo.save(mainPerson);
