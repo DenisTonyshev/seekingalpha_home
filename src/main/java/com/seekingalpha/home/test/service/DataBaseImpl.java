@@ -44,7 +44,7 @@ public class DataBaseImpl implements IDataBaseSQL {
 
     @Override
     public List<UserDTO> getAllUsers() {
-        List<UserJPA> allUsers = userRepo.findAll();
+        List<UserJPA> allUsers = userRepo.getAllUsers();
         return UserListJpaToDto(allUsers);
     }
 
@@ -56,6 +56,7 @@ public class DataBaseImpl implements IDataBaseSQL {
         if (mainUser == follower || mainUser <= 0 || follower <= 0) {
             return UserJpaToDto(mainPerson);
         }
+
         if (mainPerson != null && followerPerson != null) {
             List<UserJPA> followers = mainPerson.getFollowers();
             if (followers.contains(followerPerson)) {
