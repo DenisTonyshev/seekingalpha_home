@@ -27,7 +27,7 @@ public class RestController {
         return workWithDB.getAllUsers();
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     boolean logIn(@RequestParam int id){
         return workWithDB.logIn(id);
     }
