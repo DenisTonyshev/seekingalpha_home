@@ -1,14 +1,14 @@
 package com.seekingalpha.home.test.service;
 
 import com.seekingalpha.home.test.dto.*;
-import com.seekingalpha.home.test.jpa.UserJPA;
-
 import java.util.*;
 
 public interface IDataBaseSQL {
 
-//    void addGroups();
+    //    void addGroups();
 //    void addUsers();
+//Правильнее было бы убрать логирование в отдельный класс и нтерфейс.
+    boolean logIn(int id);
 
     List<UserDTO> getAllUsers();
 

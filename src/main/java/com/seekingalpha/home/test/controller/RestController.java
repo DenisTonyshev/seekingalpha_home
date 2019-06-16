@@ -27,6 +27,10 @@ public class RestController {
         return workWithDB.getAllUsers();
     }
 
+    @GetMapping("/login")
+    boolean logIn(@RequestParam int id){
+        return workWithDB.logIn(id);
+    }
 
     @PostMapping("/")
     UserDTO followUnfollow(@RequestBody FollowerDTO followerDTO) {
