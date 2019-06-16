@@ -18,7 +18,7 @@ public class UserJPA implements Serializable {
         this.name = name;
         this.group_id = group;
         this.numberOfFollowers = 0;
-        this.followers = new ArrayList<>();
+        this.followers = new HashSet<>();
     }
 
     @Id
@@ -36,7 +36,7 @@ public class UserJPA implements Serializable {
     private int numberOfFollowers;
 
     @Column(name = "myFollowers")
-    private ArrayList<Integer> followers;
+    private  HashSet<Integer> followers;
 
     @Override
     public String toString() {

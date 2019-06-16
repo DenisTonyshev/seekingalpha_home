@@ -49,7 +49,7 @@ public class DataBaseImpl implements IDataBaseSQL {
     }
 
     @Override
-    public List<Integer> getUserFollowersById(int id) {
+    public  HashSet<Integer> getUserFollowersById(int id) {
        UserJPA byId = userRepo.findById(id).orElse(null);
         return  byId.getFollowers();
     }
@@ -63,7 +63,7 @@ public class DataBaseImpl implements IDataBaseSQL {
             return UserJpaToDto(mainPerson);
         }
         if (mainPerson != null && followerPerson != null) {
-            ArrayList<Integer> followers = mainPerson.getFollowers();
+            HashSet<Integer> followers = mainPerson.getFollowers();
             if (followers.contains(followerPerson.getId())) {
                 followers.remove(followerPerson.getId());
                 mainPerson.setNumberOfFollowers(followers.size());

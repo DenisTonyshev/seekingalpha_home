@@ -12,7 +12,7 @@ public interface IDataBaseSQL {
     boolean logIn(int id);
 
     List<UserDTO> getAllUsers();
-    List<Integer> getUserFollowersById(int id);
+    HashSet<Integer> getUserFollowersById(int id);
     UserDTO Follow_Unfollow_User(int mainId, int followerId);
 
 }

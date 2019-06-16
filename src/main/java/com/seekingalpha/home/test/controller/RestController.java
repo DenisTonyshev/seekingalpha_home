@@ -7,6 +7,7 @@ import com.seekingalpha.home.test.service.IDataBaseSQL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashSet;
 import java.util.List;
 
 @org.springframework.web.bind.annotation.RestController
@@ -34,7 +35,7 @@ public class RestController {
     }
 
     @GetMapping(value = "/{id}")
-    List<Integer> followers(@PathVariable(name = "id") int id){
+    HashSet<Integer> followers(@PathVariable(name = "id") int id){
         return workWithDB.getUserFollowersById(id);
     }
 
