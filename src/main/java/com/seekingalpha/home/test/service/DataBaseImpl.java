@@ -63,10 +63,12 @@ public class DataBaseImpl implements IDataBaseSQL {
             List<UserJPA> followers = mainPerson.getFollowers();
             if (followers.contains(followerPerson)) {
                 followers.remove(followerPerson);
+                mainPerson.setFollowers(followers);
                 userRepo.save(mainPerson);
                 return UserJpaToDto(mainPerson);
             } else {
                 followers.add(followerPerson);
+                mainPerson.setFollowers(followers);
                 userRepo.save(mainPerson);
                 return UserJpaToDto(mainPerson);
             }
