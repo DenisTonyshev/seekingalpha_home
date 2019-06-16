@@ -5,8 +5,8 @@ import java.util.*;
 
 public interface IDataBaseSQL {
 
-    //    void addGroups();
-//    void addUsers();
+        void addGroups();
+    void addUsers();
 //Правильнее было бы убрать логирование в отдельный класс и нтерфейс.
     boolean logIn(int id);
 

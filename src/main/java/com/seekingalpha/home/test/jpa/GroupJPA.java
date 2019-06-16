@@ -26,4 +26,9 @@ public class GroupJPA {
     @Column(name = "name")
     private String name;
 
+    @Override
+    public String toString() {
+        return "id=" + id +
+                ", name='" + name;
+    }
 }

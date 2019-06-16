@@ -37,4 +37,12 @@ public class UserJPA implements Serializable {
     @OneToMany
     @JoinColumn(name = "followers")
     private List<UserJPA> followers;
+
+    @Override
+    public String toString() {
+        return  "id=" + id +
+                ", name='" + name +
+                ", group_id=" + group_id +
+                ", numberOfFollowers=" + numberOfFollowers;
+    }
 }

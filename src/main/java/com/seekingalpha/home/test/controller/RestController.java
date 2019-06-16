@@ -15,13 +15,13 @@ public class RestController {
     @Autowired
     IDataBaseSQL workWithDB;
 
-    //    @GetMapping("/auto")
-//    void addToDBTest() {
-//        workWithDB.addGroups();
-//        System.out.println("Groups Created");
-//        workWithDB.addUsers();
-//        System.out.println("Users Created");
-//    }
+        @GetMapping("/auto")
+    void addToDBTest() {
+        workWithDB.addGroups();
+        System.out.println("Groups Created");
+        workWithDB.addUsers();
+        System.out.println("Users Created");
+    }
     @GetMapping("/")
     List<UserDTO> getAllMembers() {
         return workWithDB.getAllUsers();
