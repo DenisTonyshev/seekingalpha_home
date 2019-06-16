@@ -28,8 +28,8 @@ public class RestController {
     }
 
     @PostMapping("/login")
-    boolean logIn(@RequestBody UserDTO user){
-        return workWithDB.logIn(user.getId());
+    boolean logIn(@RequestParam(name = "id") int id){
+        return workWithDB.logIn(id);
     }
 
     @PostMapping("/")
