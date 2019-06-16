@@ -51,6 +51,8 @@ public class DataBaseImpl implements IDataBaseSQL {
     @Override
     @Transactional
     public UserDTO Follow_Unfollow_User(int mainUser, int follower) {
+        System.out.println(mainUser);
+        System.out.println(follower);
         UserJPA mainPerson = userRepo.findById(mainUser).orElse(null);
         UserJPA followerPerson = userRepo.findById(follower).orElse(null);
         if (mainUser == follower || mainUser <= 0 || follower <= 0) {
