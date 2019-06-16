@@ -18,21 +18,6 @@ public class DataBaseImpl implements IDataBaseSQL {
     @Autowired
     SQLUserRepo userRepo;
 
-//        @PostConstruct
-//    @Override
-//    public void addGroups() {
-//        for (int i = 1; i <= 5; i++) {
-//            GroupJPA groupJPA = new GroupJPA("Name " + i);
-//            groupRepo.save(groupJPA);
-//        }
-//    }
-//    @Override
-//    public void addUsers() {
-//        for (int i = 1; i <= 10; i++) {
-//            userRepo.save(new UserJPA("IMYA " + i, groupRepo.findById(i % 5 + 1).orElse(null)));
-//        }
-//    }
-
     @Override
     public boolean logIn(int id) {
         if (id < 0) {
@@ -51,10 +36,12 @@ public class DataBaseImpl implements IDataBaseSQL {
     @Override
     @Transactional
     public UserDTO Follow_Unfollow_User(int mainUser, int follower) {
-        System.out.println(mainUser);
-        System.out.println(follower);
+        System.out.println(mainUser + "main");
+        System.out.println(follower + "Follow");
         UserJPA mainPerson = userRepo.findById(mainUser).orElse(null);
         UserJPA followerPerson = userRepo.findById(follower).orElse(null);
+        System.out.println(mainPerson);
+        System.out.println(followerPerson);
         if (mainUser == follower || mainUser <= 0 || follower <= 0) {
             return UserJpaToDto(mainPerson);
         }
