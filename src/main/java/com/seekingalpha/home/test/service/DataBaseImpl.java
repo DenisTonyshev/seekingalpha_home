@@ -64,12 +64,12 @@ public class DataBaseImpl implements IDataBaseSQL {
     private List<UserDTO> UserListJpaToDto(List<UserJPA> users) {
         List<UserDTO> userDto = new ArrayList<>();
         for (UserJPA user : users) {
-            userDto.add(new UserDTO(user.getName(), new GroupDTO(user.getGroup_id().getName()), user.getFollowers().size()));
+            userDto.add(new UserDTO(user.getId(),user.getName(), new GroupDTO(user.getGroup_id().getName()).getName(), user.getFollowers().size()));
         }
         return userDto;
     }
 
     private UserDTO UserJpaToDto(UserJPA user) {
-        return (new UserDTO(user.getName(), new GroupDTO(user.getGroup_id().getName()), user.getFollowers().size()));
+        return (new UserDTO(user.getId(),user.getName(), new GroupDTO(user.getGroup_id().getName()).getName(), user.getFollowers().size()));
     }
 }

@@ -6,7 +6,8 @@ import lombok.*;
 @Getter
 @AllArgsConstructor
 public class UserDTO {
+   private int id;
    private String name;
-   private GroupDTO group;
+   private String groupName;
    private int numberOfFollowers;
 }
